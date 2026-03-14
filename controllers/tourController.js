@@ -98,8 +98,8 @@ exports.getTourStats = catchAsync(async (req, res, next) => {
         numRatings: { $sum: '$ratingsQuantity' },
         avgRating: { $avg: '$ratingsAverage' },
         avgPrice: { $avg: '$price' },
-        minPrice: { $avg: '$price' },
-        maxPrice: { $avg: '$price' }
+        minPrice: { $min: '$price' },
+        maxPrice: { $max: '$price' }
       }
     },
     {
